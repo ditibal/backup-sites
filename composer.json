@@ -1,0 +1,14 @@
+{
+    "require": {
+        "symfony/process": "^3.1",
+        "phpmailer/phpmailer": "^5.2",
+        "nixsolutions/yandex-php-library": "^3.0",
+        "ext-json": "*",
+        "icewind/smb": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "fs\\": "fs/"
+        }
+    }
+}

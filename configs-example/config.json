@@ -1,0 +1,30 @@
+{
+    "tmp_dir": "/tmp/tmp_backups",
+    "dir": {
+        "root_path": "/var/www/sites",
+        "exclude_dirs": [
+            ".Trash"
+        ]
+    },
+    "storages": {
+        "yandex": {
+            "token": "yandex_token",
+            "path": "/path/to/store/backups",
+            "limit": "1"
+        },
+        "samba_server": {
+            "ip": "192.168.1.1",
+            "username": "samba_user",
+            "workgroup": "samba_workgroup",
+            "password": "samba_password",
+            "share": "samba_share",
+
+            "path": "/path/to/store/backups",
+            "limit": "1"
+        },
+        "backup_server": {
+            "path": "/path/to/store/backups",
+            "limit": "1"
+        }
+    }
+}

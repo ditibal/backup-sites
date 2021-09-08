@@ -1,0 +1,9 @@
+{
+    "host": "192.168.1.1",
+    "name": "db_name",
+    "user": "db_user",
+    "pass": "db_pass",
+    "ignore":[
+        "table_to_ignore"
+    ]
+}
