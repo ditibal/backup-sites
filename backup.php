@@ -28,18 +28,19 @@ class App
      */
     protected function loadConfig()
     {
-        if (!file_exists('./configs/config.json')) {
+        $configPath = __DIR__ . '/configs';
+        if (!file_exists("$configPath/config.json")) {
             throw new Exception('Not found config.json');
         }
 
-        $this->config = json_decode(file_get_contents('./configs/config.json'), true);
+        $this->config = json_decode(file_get_contents("$configPath/config.json"), true);
 
         if ($this->config === null) {
             throw new Exception("Error in config file: 'configs/config.json'");
         }
 
-        $this->config['databases'] = $this->loadConfigFromDir('./configs/db');
-        $this->config['directories'] = $this->loadConfigFromDir('./configs/dir');
+        $this->config['databases'] = $this->loadConfigFromDir("$configPath/db");
+        $this->config['directories'] = $this->loadConfigFromDir("$configPath/dir");
     }
 
     /**
@@ -235,9 +236,9 @@ class App
                 $archiveName = $backupsDir . date('Y-m-d') . '-db-' . $name . '.sql.gz';
 
                 $ignore = '';
-                if (isset($db['exclude_tables'])) {
+                if (isset($db['ignore'])) {
                     foreach ($db['ignore'] as $t) {
-                        $ignore .= " --ignore-table={$db['dbname']}." . $t;
+                        $ignore .= " --ignore-table={$db['name']}." . $t;
                     }
                 }
 
